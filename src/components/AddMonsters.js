@@ -12,7 +12,8 @@ class AddMonsters extends Component {
         'Rusty Sword'
       ]
     }
-    this.AddMonster = this.AddMonster.bind(this);
+    console.log(props)
+    this.AddNewMonster = this.AddNewMonster.bind(this);
     this.handleInputChange = this.handleInputChange.bind(this);
   }
 
@@ -23,9 +24,9 @@ class AddMonsters extends Component {
   }
 
 
-  AddMonster(e){
+  AddNewMonster(e){
     e.preventDefault();
-    this.props.action({
+    this.props.AddMonster({
       name: this.state.name,
       age: this.state.age,
       weapons: this.state.weapons
@@ -43,7 +44,7 @@ class AddMonsters extends Component {
     });
 
     return (
-      <form onSubmit={this.AddMonster }>
+      <form onSubmit={this.AddNewMonster }>
         <label id="New">Name:</label>
         <input id="NewMonsterName" name="name" type="text" onChange={ this.handleInputChange }/>
         <br/>

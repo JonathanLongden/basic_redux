@@ -4,7 +4,11 @@ import './App.css';
 import ListMonsters from './components/ListMonsters.js'
 
 class App extends Component {
+  constructor(props) {
+		super(props);
+	}
   render() {
+    console.log(this.props)
     return (
       <div className="App">
         <header className="App-header">
@@ -14,7 +18,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <ListMonsters />
+        <ListMonsters AddMonster = {this.props.addMonster} />
       </div>
     );
   }

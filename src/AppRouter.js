@@ -6,23 +6,31 @@ import App from './App';
 // import BeerDetails from './components/BeerDetails';
 // import BeerUpdate from './components/BeerUpdate';
 //import Login from './Login';
-// import * as beerActions from './actions/beers';
-// import { bindActionCreators } from 'redux';
+import * as MonsterActions from './actions/ActionsMonster';
+import { bindActionCreators } from 'redux';
 
 // App.js only delegates the different routes
 class AppRouter extends Component {
-	// constructor(props) {
-	// 	super(props);
-	// }
+	constructor(props) {
+		super(props);
+		this.state = {
+			create: this.props.actions.addMonster,
+			read: this.props.actions.Monster,
+			update: this.props.actions.updateMonster,
+			delete: this.props.actions.deleteMonster
+
+			
+		}
+	}
 
 	render() {
-    //console.log(this.props.actions);
+		console.log(this.props.actions);
 		return (
 			<div>
 				<BrowserRouter>
 					<Switch>
 
-						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } />} />
+						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history }  addMonster={ this.state.create }/>} />
 						
 					</Switch>
 				</BrowserRouter>
@@ -41,7 +49,7 @@ const mapStateToProps = state => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  //actions: bindActionCreators(beerActions, dispatch)
+  actions: bindActionCreators(MonsterActions, dispatch)
 })
 
 export default connect(

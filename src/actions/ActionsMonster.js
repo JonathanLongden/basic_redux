@@ -1,26 +1,27 @@
-export const ADD_MONSTER = 'ADD_MONSTER';
-export const DELETE_MONSTER = 'DELETE_MONSTER';
-export const UPDATE_MONSTER = 'UPDATE_MONSTER';
+export const STANDARDS = {
+  ADD_MONSTER :'ADD_MONSTER',
+  DELETE_MONSTER : 'DELETE_MONSTER',
+  UPDATE_MONSTER : 'UPDATE_MONSTER',
+};
 
-export  function addBeer(monster) {
+export  function addMonster(monster) {
+  console.log(monster);
   return {
-    type: ADD_MONSTER,
-    beer: Object.assign({}, monster)
+    type: STANDARDS.ADD_MONSTER,
+    monster: Object.assign({}, monster)
   }
 }
-//beer: Object.assign({}, beer), {id: nextBeerId++}
 
-export function deleteBeer(monster) {
+export function deleteMonster(monster) {
   return {
-    type: DELETE_MONSTER,
+    type: STANDARDS.DELETE_MONSTER,
     monster: monster
   }
 }
 
-export function updateBeer(monster) {
-  console.log(beer);
+export function updateMonster(monster) {
   return {
-    type: UPDATE_BEER,
+    type: STANDARDS.UPDATE_MONSTER,
     monster: monster
   }
 }

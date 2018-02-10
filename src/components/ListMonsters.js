@@ -1,17 +1,18 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import AddMonster from './AddMonsters';
+import AddMonsterPage from './AddMonsters';
 
 class ListMonsters extends Component {
   constructor(props) {
     super(props);
         this.state = {
             //id: props.match.params.id,
-            monsters: [{id:"0", name:"Freddy", age:"23", weapon: "Claws"}],
+            monsters: [{id: 1, name:"Freddy", age:"23", weapon: "Claws"}],
             name: "",
             brewery:"",
             alcoholContent: ""
         }
+        console.log(props)
     }
 
 //   deleteBeer(beer) {
@@ -21,10 +22,10 @@ class ListMonsters extends Component {
 //   }
 
   render() {
-    console.log(this.state);
+    console.log(this.props);
     let MonsterList = this.state.monsters.map((monster) => {
-      return (<div>
-        <li key={monster.id}>
+      return (<div key={monster.id}>
+        <li >
             <ul> Name: {monster.name} </ul>
             <ul> Age : {monster.age}  </ul>
             <ul> Weapon : {monster.weapon} </ul>       
@@ -40,7 +41,7 @@ class ListMonsters extends Component {
         </ul>
         <br/>
         <br/>
-        <AddMonster />
+        <AddMonsterPage AddMonster = {this.props.AddMonster}/>
         {/*<BeerAdd action={ this.props.action } beers = {this.props.beers}/>*/}
       </div>
     );
