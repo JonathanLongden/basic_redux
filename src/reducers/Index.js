@@ -1,8 +1,8 @@
-// import { combineReducers } from 'redux';
+import { combineReducers } from 'redux';
 // import beers from './beers';
 
-// const rootReducer = combineReducers({
-//   beers
-// })
+const rootReducer = combineReducers({
+  //beers
+})
 
-// export default rootReducer
+export default rootReducer
