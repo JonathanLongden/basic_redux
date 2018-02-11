@@ -44,7 +44,7 @@ import {
             id: New3Id,
             name: action.monster.name,
             age: action.monster.age,
-            weapon: action.monster.weapon
+            weapon: action.monster.weapons
           }
         ]
       case STANDARDS.DELETE_MONSTER:
@@ -52,14 +52,22 @@ import {
             s.id !== action.id.id
         )
       case STANDARDS.UPDATE_MONSTER:
-        const newState = Object.assign([], state);
-        const indexOfBeerToDelete = state.findIndex(monster => {
-          return monster.id === action.monster.id;
-        })
-        newState.splice(indexOfBeerToDelete, 1);
-
-        return newState;
+          console.log(action.monster)
+          return state.map((s) => {
+            //this allows strings to be compared to Numbers
+            if (s.id != action.monster.id) {
+              return s;
+            }
+            //return action.beer;
+            return action.monster;
+          });
       default:
         return state;
     }
   }
+
+  // return state.map(dog =>
+  //           dog.id === action.id ?
+  //             action.dog :
+  //             dog
+  //         )

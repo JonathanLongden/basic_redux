@@ -20,6 +20,7 @@ export function deleteMonster(id) {
 }
 
 export function updateMonster(monster) {
+  console.log(monster);
   return {
     type: STANDARDS.UPDATE_MONSTER,
     monster: monster
@@ -27,36 +28,5 @@ export function updateMonster(monster) {
 }
 
 
-// case DELETE_DOG:
-//       return state.filter(dog =>
-//         dog.id !== action.id
-//       )
-//       case UPDATE_DOG:
-//       return state.map(dog =>
-//         dog.id === action.id ?
-//           action.dog :
-//           dog
-//       )
-
 //https://codereview.stackexchange.com/questions/126574/crud-application-using-react-redux
 
-// export const STANDARDS = {
-//   CREATE: 'CREATE_STANDARD',
-//   DELETE: 'DELETE_STANDARD',
-//   UPDATE: 'UPDATE_STANDARD',
-// };
-
-// export const createStandard = (standard) => ({
-//   type: STANDARDS.CREATE,
-//   standard,
-// });
-
-// export const updateStandard = (standard) => ({
-//   type: STANDARDS.UPDATE,
-//   standard,
-// });
-
-// export const deleteStandard = (id) => ({
-//   type: STANDARDS.DELETE,
-//   id,
-// });

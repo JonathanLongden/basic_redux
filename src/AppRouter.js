@@ -23,15 +23,15 @@ class AppRouter extends Component {
 		return (
 			<div>
 				<BrowserRouter>
-					<Switch>
+					<Switch>UpdateMonsterStuff
 						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } readMonster ={this.props.Monsters} addMonster={ this.state.create } DeleteMonster={ this.state.delete }/>} />
 						<Route exact path="/monster/:id" render={ ({ match, history }) => <MonsterId match={ match } history={ history } readMonster ={this.props.Monsters}/>} />
-						<Route exact path="/beers/update/:id" render={ ({ match, history }) => <UpdateMonster match={ match } history={ history }  beers={ this.props.beers }  UpdateMonsters={ this.state.update } />} />
+						<Route exact path="/monster/update/:id" render={ ({ match, history }) => <UpdateMonster match={ match } history={ history }  readMonster ={this.props.Monsters} UpdateMonsterStuff={ this.state.update } />} />
 					</Switch>
 				</BrowserRouter>
 
 			</div>
-    );
+    	);
 	}
 }
 

@@ -16,8 +16,6 @@ class MonsterId extends Component {
     );
   }
 
- 
-
   render() {;
     return (
       <div>
@@ -26,7 +24,7 @@ class MonsterId extends Component {
           <div>
             <li>Name: { this.state.name }</li>
             <li>Age: { this.state.age }</li>
-            <li>Weapon: { this.state.weapons }</li>
+            <li>Weapon: { this.state.weapon }</li>
             </div>
         </ul>
         <Link to='/'><button>Back</button></Link> 
