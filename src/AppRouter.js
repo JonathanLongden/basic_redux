@@ -15,7 +15,7 @@ class AppRouter extends Component {
 		super(props);
 		this.state = {
 			create: this.props.actions.addMonster,
-			read: this.props.actions.Monster,
+			read: this.props.Monsters,
 			update: this.props.actions.updateMonster,
 			delete: this.props.actions.deleteMonster
 
@@ -24,13 +24,13 @@ class AppRouter extends Component {
 	}
 
 	render() {
-		console.log(this.props.actions);
+		console.log(this.props);
 		return (
 			<div>
 				<BrowserRouter>
 					<Switch>
 
-						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history }  addMonster={ this.state.create }/>} />
+						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } readMonster ={this.props.Monsters} addMonster={ this.state.create }/>} />
 						
 					</Switch>
 				</BrowserRouter>
@@ -44,7 +44,7 @@ class AppRouter extends Component {
 // <Route exact path="/beers/update/:id" render={ ({ match, history }) => <BeerUpdate match={ match } history={ history }  beers={ this.props.beers }  UpdateAction={ this.props.actions.updateBeer } />} />
 
 const mapStateToProps = state => ({
-  beers: state.beers
+	Monsters: state.Monsters
 
 })
 

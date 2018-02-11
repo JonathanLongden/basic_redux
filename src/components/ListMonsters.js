@@ -21,9 +21,10 @@ class ListMonsters extends Component {
 //     });
 //   }
 
+
   render() {
     console.log(this.props);
-    let MonsterList = this.state.monsters.map((monster) => {
+    let MonsterList =  this.props.readMonster.map((monster) => {
       return (<div key={monster.id}>
         <li >
             <ul> Name: {monster.name} </ul>
