@@ -2,10 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';
 import App from './App';
-// import BeerList from './components/BeerList';
-// import BeerDetails from './components/BeerDetails';
-// import BeerUpdate from './components/BeerUpdate';
-//import Login from './Login';
+import MonsterId from './components/MonsterId';
+import UpdateMonster from './components/UpdateMonster';
 import * as MonsterActions from './actions/ActionsMonster';
 import { bindActionCreators } from 'redux';
 
@@ -15,11 +13,8 @@ class AppRouter extends Component {
 		super(props);
 		this.state = {
 			create: this.props.actions.addMonster,
-			read: this.props.Monsters,
 			update: this.props.actions.updateMonster,
 			delete: this.props.actions.deleteMonster
-
-			
 		}
 	}
 
@@ -29,9 +24,9 @@ class AppRouter extends Component {
 			<div>
 				<BrowserRouter>
 					<Switch>
-
-						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } readMonster ={this.props.Monsters} addMonster={ this.state.create }/>} />
-						
+						<Route exact path="/" render={ ({ match, history }) => <App match={ match } history={ history } readMonster ={this.props.Monsters} addMonster={ this.state.create } DeleteMonster={ this.state.delete }/>} />
+						<Route exact path="/monster/:id" render={ ({ match, history }) => <MonsterId match={ match } history={ history } readMonster ={this.props.Monsters}/>} />
+						<Route exact path="/beers/update/:id" render={ ({ match, history }) => <UpdateMonster match={ match } history={ history }  beers={ this.props.beers }  UpdateMonsters={ this.state.update } />} />
 					</Switch>
 				</BrowserRouter>
 
@@ -39,9 +34,6 @@ class AppRouter extends Component {
     );
 	}
 }
-// <Route exact path="/" render={ ({ match, history, beers, action }) => <BeerList match={ match } history={ history } beers={ this.props.beers } deleteAction={ this.props.actions.deleteBeer } action={ this.props.actions.addBeer } />} />
-// <Route exact path="/beers/:id" render={ ({ match, history }) => <BeerDetails match={ match } history={ history } beers={ this.props.beers }/>} />
-// <Route exact path="/beers/update/:id" render={ ({ match, history }) => <BeerUpdate match={ match } history={ history }  beers={ this.props.beers }  UpdateAction={ this.props.actions.updateBeer } />} />
 
 const mapStateToProps = state => ({
 	Monsters: state.Monsters

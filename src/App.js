@@ -18,7 +18,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
-        <ListMonsters readMonster ={this.props.readMonster} AddMonster = {this.props.addMonster} />
+        <ListMonsters readMonster ={this.props.readMonster} AddMonster = {this.props.addMonster} DeleteMonster={ this.props.DeleteMonster } />
       </div>
     );
   }

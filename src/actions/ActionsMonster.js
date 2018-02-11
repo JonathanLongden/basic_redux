@@ -12,10 +12,10 @@ export  function addMonster(monster) {
   }
 }
 
-export function deleteMonster(monster) {
+export function deleteMonster(id) {
   return {
     type: STANDARDS.DELETE_MONSTER,
-    monster: monster
+    id: id
   }
 }
 
@@ -25,6 +25,18 @@ export function updateMonster(monster) {
     monster: monster
   }
 }
+
+
+// case DELETE_DOG:
+//       return state.filter(dog =>
+//         dog.id !== action.id
+//       )
+//       case UPDATE_DOG:
+//       return state.map(dog =>
+//         dog.id === action.id ?
+//           action.dog :
+//           dog
+//       )
 
 //https://codereview.stackexchange.com/questions/126574/crud-application-using-react-redux
 

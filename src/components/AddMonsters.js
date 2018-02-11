@@ -6,6 +6,7 @@ class AddMonsters extends Component {
     this.state = {
       name: '',
       age: '',
+      weapon: 'Finger Toes',
       weapons: [
         'Smelly Feet',
         'Spike Club',
@@ -29,7 +30,7 @@ class AddMonsters extends Component {
     this.props.AddMonster({
       name: this.state.name,
       age: this.state.age,
-      weapons: this.state.weapons
+      weapons: this.state.weapon
     });
 
   }
@@ -46,15 +47,15 @@ class AddMonsters extends Component {
     return (
       <form onSubmit={this.AddNewMonster }>
         <label id="New">Name:</label>
-        <input id="NewMonsterName" name="name" type="text" onChange={ this.handleInputChange }/>
+          <input id="NewMonsterName" name="name" type="text" onChange={ this.handleInputChange }/>
         <br/>
         <label id="NewMonsterAge">Age:</label>
-        <input id="NewMonsterAge" name="age" type="number" onChange={ this.handleInputChange }/>
+          <input id="NewMonsterAge" name="age" type="number" onChange={ this.handleInputChange }/>
         <br/>
         <label id="NewMonsterWeapon">Weapon:</label>
-        <select id="NewMonsterWeapon" name="age" onChange={ this.handleInputChange }>
-          { MonsterWeaponList }
-        </select>
+          <select id="NewMonsterWeapon" name="weapon"  onChange={ this.handleInputChange }>
+            { MonsterWeaponList }
+          </select>
         <br/>
         <button>Add Monster</button>
       </form>

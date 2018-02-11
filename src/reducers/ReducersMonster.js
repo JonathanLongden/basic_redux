@@ -31,11 +31,13 @@ import {
       return 0;
     }
   }
-  export default function Monsters(state = [], action) {
+
+  const initialState = [];
+
+  export default function Monsters(state = initialState, action) {
     switch (action.type) {
       case  STANDARDS.ADD_MONSTER:
         const New3Id = NewId(state);
-        console.log(action)
         return [
           ...state,
           {
@@ -46,21 +48,16 @@ import {
           }
         ]
       case STANDARDS.DELETE_MONSTER:
-          return state.map((s) => {
-          //this allows strings to be compared to Numbers
-          if (s.id != action.beer.id) {
-            return s;
-          }
-          //return action.beer;
-          return action.beer;
-        });
+          return state.filter(s =>
+            s.id !== action.id.id
+        )
       case STANDARDS.UPDATE_MONSTER:
         const newState = Object.assign([], state);
-        const indexOfBeerToDelete = state.findIndex(beer => {
-          return beer.id === action.beer.id;
+        const indexOfBeerToDelete = state.findIndex(monster => {
+          return monster.id === action.monster.id;
         })
         newState.splice(indexOfBeerToDelete, 1);
-        //browserHistory.push('/cats');
+
         return newState;
       default:
         return state;
