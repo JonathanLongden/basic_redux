@@ -65,9 +65,3 @@ import {
         return state;
     }
   }
-
-  // return state.map(dog =>
-  //           dog.id === action.id ?
-  //             action.dog :
-  //             dog
-  //         )
